@@ -8,43 +8,63 @@
 </head>
 <body>
     <div id="app">
-    <h1>Declarative Rendering example</h1>
-    <p>{{ message }}</p>
+        <h1>Declarative Rendering example</h1>
+        <p>{{ message }}</p>
     </div>
 
     <div id="app-2">
-    <h1>Text interpolation example</h1>
-    <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
-    </span>
+        <h1>Text interpolation example</h1>
+        <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </span>
     </div>
 
     <div id="app-3">
-    <h1>Conditionals example</h1>
-    <span v-if="seen">Now you see me</span>
+        <h1>Conditionals example</h1>
+        <span v-if="seen">Now you see me</span>
     </div>
 
     <div id="app-4">
-    <h1>Loops example</h1>
-    <ol>
-        <li v-for="todo in todos">
-        {{ todo.text }}
-        </li>
-    </ol>
+        <h1>Loops example</h1>
+        <ol>
+            <li v-for="todo in todos">
+            {{ todo.text }}
+            </li>
+        </ol>
     </div>
 
     <div id="app-5">
-    <h1>User input example</h1>
-    <p>{{ message }}</p>
-    <button v-on:click="reverseMessage">
-    Reverse message
-    </button>
+        <h1>User input example</h1>
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">
+        Reverse message
+        </button>
     </div>
 
     <div id="app-6">
-    <h1>Model example</h1>
-    <p>{{ message }}</p>
-    <input type="text" v-model="message">
+        <h1>Model example</h1>
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+    </div>
+    
+    <h1>Component example</h1>
+    <ol>
+        <!-- Create an instance of the todo-item component -->
+        <todo-item></todo-item>
+    </ol>
+
+    <div id="app-7">
+        <ol>
+            <!-- Now we provide each todo-item with the todo object
+            its representing, so that its content can be dynamic.
+            We also need to provide each component with a 'key',
+            which will be explained later -->
+            <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+            </todo-item>
+        </ol>
     </div>
 </body>
 <script src="https://unpkg.com/vue"></script>

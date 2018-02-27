@@ -49,3 +49,19 @@ const app6 = new Vue({
         message: 'Hey mate'
     }
 })
+
+Vue.component('todo-item', {
+    prop: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+})
+
+const app7 = new Vue({
+    el: '#app-7',
+    data: {
+        groceryList: [
+            {id: 0, text: 'veges'},
+            {id: 1, text: 'cheese'},
+            {id: 2, text: 'other'}
+        ]
+    }
+})
