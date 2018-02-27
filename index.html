@@ -49,14 +49,11 @@
     
     <h1>Component example</h1>
     <div id="app-7">
-        <!-- Now we provide each todo-item with the todo object
-        its representing, so that its content can be dynamic.
-        We also need to provide each component with a 'key',
-        which will be explained later -->
-        <todo-item
+        <todo-item inline-template 
             v-for="item in groceryList"
             v-bind:todo="item"
             v-bind:key="item.id">
+            <li>{{ todo.text }}</li>
         </todo-item>
     </div>
 </body>
